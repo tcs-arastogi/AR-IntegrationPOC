@@ -25,8 +25,11 @@ class NativeIosModule: RCTEventEmitter {
     DispatchQueue.main.async {
       let storyboard = UIStoryboard.init(name: "main", bundle: nil)
       let vc = storyboard.instantiateViewController(withIdentifier: "NativeViewController") as! NativeViewController
+      let navigationController = UINavigationController(rootViewController: vc)
+
+            
       let topController = UIApplication.topMostViewController()
-      topController?.present(vc, animated: true, completion: nil)
+      topController?.present(navigationController, animated: true, completion: nil)
       
     }
   }

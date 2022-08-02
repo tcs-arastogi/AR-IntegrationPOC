@@ -19,6 +19,8 @@
 		E819CDA82889091E0095D80F /* NativeIosModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E819CDA72889091E0095D80F /* NativeIosModule.m */; };
 		E819CDAA2889096B0095D80F /* NativeIosModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = E819CDA92889096B0095D80F /* NativeIosModule.swift */; };
 		E819CDAC28890A7A0095D80F /* RCTNativeViewControllerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E819CDAB28890A7A0095D80F /* RCTNativeViewControllerManager.m */; };
+		E8E2FB2B2899692F006554DF /* AR_framework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E2FB29289968F1006554DF /* AR_framework.framework */; platformFilter = ios; };
+		E8E2FB2C2899692F006554DF /* AR_framework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8E2FB29289968F1006554DF /* AR_framework.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +32,20 @@
 			remoteInfo = IntegrationPOC;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E8229A5328995EB400BC1DBF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E8E2FB2C2899692F006554DF /* AR_framework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00E356EE1AD99517003FC87E /* IntegrationPOCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationPOCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +70,7 @@
 		E819CDA72889091E0095D80F /* NativeIosModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = NativeIosModule.m; path = IntegrationPOC/NativeIosModule.m; sourceTree = "<group>"; };
 		E819CDA92889096B0095D80F /* NativeIosModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NativeIosModule.swift; path = IntegrationPOC/NativeIosModule.swift; sourceTree = "<group>"; };
 		E819CDAB28890A7A0095D80F /* RCTNativeViewControllerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RCTNativeViewControllerManager.m; path = IntegrationPOC/RCTNativeViewControllerManager.m; sourceTree = "<group>"; };
+		E8E2FB29289968F1006554DF /* AR_framework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AR_framework.framework; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -70,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8E2FB2B2899692F006554DF /* AR_framework.framework in Frameworks */,
 				62982FB4D2B6A19CAD230DAB /* libPods-IntegrationPOC.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +115,7 @@
 		13B07FAE1A68108700A75B9A /* IntegrationPOC */ = {
 			isa = PBXGroup;
 			children = (
+				E8E2FB29289968F1006554DF /* AR_framework.framework */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -201,6 +220,7 @@
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				F1616D9D8D0F1F43E0BBF86E /* [CP] Embed Pods Frameworks */,
 				ED4FDBEF02273F0A1F30B03D /* [CP] Copy Pods Resources */,
+				E8229A5328995EB400BC1DBF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -507,8 +527,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UBF9L4MFG6;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = IntegrationPOC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,8 +546,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.containerstore.ar;
 				PRODUCT_NAME = IntegrationPOC;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IntegrationPOC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -534,7 +562,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = IntegrationPOC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -547,6 +581,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = IntegrationPOC;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "IntegrationPOC-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -586,8 +621,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				"EXCLUDED_ARCHS[sdk=*]" = arm64;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;

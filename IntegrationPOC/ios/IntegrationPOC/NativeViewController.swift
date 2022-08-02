@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AR_framework
 
 class NativeViewController: UIViewController {
 
@@ -21,9 +22,25 @@ class NativeViewController: UIViewController {
       let topController = UIApplication.topMostViewController()
       topController?.dismiss(animated: true, completion: nil)
     }
+    
+    
+    
   }
   
-    /*
+  @IBAction func arFrameworkAction(_ sender: UIButton) {
+//    let keyWindow = UIApplication.shared.connectedScenes
+//            .filter({$0.activationState == .foregroundActive})
+//            .compactMap({$0 as? UIWindowScene})
+//            .first?.windows
+//            .filter({$0.isKeyWindow}).first
+    
+    guard let navigation =  self.navigationController else { return }
+//
+    // ARProjectCoordinator - We are fetching this class from framework
+    let coordinator = ARProjectCoordinator(presenter:navigation, project: nil)
+    coordinator.start(animated: true)
+  }
+  /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
