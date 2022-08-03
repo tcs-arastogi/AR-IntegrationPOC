@@ -39,6 +39,7 @@ class NativeViewController: UIViewController {
     // ARProjectCoordinator - We are fetching this class from framework
     let coordinator = ARProjectCoordinator(presenter:navigation, project: nil)
     coordinator.start(animated: true)
+   
   }
   /*
     // MARK: - Navigation
